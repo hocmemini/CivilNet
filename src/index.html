@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civil‑Net · Business Plan</title>
+  <!-- Tailwind CDN (JIT) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- React & ReactDOM UMD builds -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel for in‑browser JSX (no build step) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .fade-in { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform:none;} }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-100">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const {useState} = React;
+    const {CheckCircle, TrendingUp, Shield, Layers, ArrowRight} = lucide;
+
+    function ModuleCard({title, Icon, children}){
+      return (
+        <div className="fade-in bg-slate-800/60 rounded-2xl shadow-xl p-4 w-full md:w-64 backdrop-blur-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <Icon className="w-5 h-5 text-teal-400" />
+            <h3 className="font-semibold text-lg">{title}</h3>
+          </div>
+          <p className="text-sm text-slate-300 leading-relaxed">{children}</p>
+        </div>
+      )
+    }
+
+    function App(){
+      const [section,setSection]=useState('overview');
+      const nav=[['overview','Overview'],['modules','Core Modules'],['market','Market'],['roadmap','Roadmap'],['contact','Contact']];
+
+      return (
+        <div>
+          {/* Header */}
+          <header className="sticky top-0 z-20 backdrop-blur-md bg-slate-900/70 shadow-inner">
+            <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
+              <h1 className="text-2xl font-bold tracking-wide">Civil‑Net</h1>
+              <nav className="flex gap-4 text-sm">
+                {nav.map(([id,label])=> (
+                  <button key={id} onClick={()=>setSection(id)} className={`hover:text-teal-400 transition ${section===id?'text-teal-400':''}`}>{label}</button>
+                ))}
+              </nav>
+            </div>
+          </header>
+
+          <main className="max-w-6xl mx-auto p-6 md:p-12 space-y-16">
+            {section==='overview' && (
+              <section className="grid md:grid-cols-2 gap-8 items-center fade-in">
+                <div className="space-y-6">
+                  <h2 className="text-4xl font-extrabold leading-tight">Empower families & teams to <span className="text-teal-400">anticipate</span>, <span className="text-teal-400">coordinate</span> & <span className="text-teal-400">thrive</span> under disruption.</h2>
+                  <p className="text-lg text-slate-300">Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, turning complex crises into actionable checklists for households, SMEs, and affinity groups.</p>
+                  <button onClick={()=>setSection('modules')} className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white font-medium px-5 py-2 rounded-xl shadow">Explore Modules <ArrowRight className="w-4 h-4 ml-2"/></button>
+                </div>
+                <img className="rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=900&q=60" alt="dashboard preview" />
+              </section>
+            )}
+
+            {section==='modules' && (
+              <section className="space-y-10 fade-in">
+                <h2 className="text-3xl font-bold">Core Modules</h2>
+                <div className="flex flex-wrap gap-6">
+                  <ModuleCard title="Watcher API" Icon={Shield}>Real‑time regex monitoring of global English feeds with webhook dispatch. Extensible to GDELT & NewsAPI for native‑language reach.</ModuleCard>
+                  <ModuleCard title="Ops Board" Icon={Layers}>Trello‑style role & asset matrix with color‑coded alerts synced to watcher triggers.</ModuleCard>
+                  <ModuleCard title="Inventory" Icon={CheckCircle}>QR‑scan supplies, auto‑calculate burn‑rate by family size, export to CSV/PDF.</ModuleCard>
+                  <ModuleCard title="Skill Scheduler" Icon={TrendingUp}>Calendar & push alerts for drills, AAR uploads, YouTube field‑day integration.</ModuleCard>
+                </div>
+              </section>
+            )}
+
+            {section==='market' && (
+              <section className="space-y-6 fade-in">
+                <h2 className="text-3xl font-bold">Market Snapshot</h2>
+                <p className="text-lg text-slate-300 max-w-3xl">~8 million U.S. households identify as serious preparedness‑minded. A $15/mo freemium conversion at 0.5 % yields $7 M ARR potential. Competitors focus on enterprise (Everbridge) or static checklists. Civil‑Net targets the white space in family‑grade but data‑driven readiness.</p>
+              </section>
+            )}
+
+            {section==='roadmap' && (
+              <section className="space-y-6 fade-in">
+                <h2 className="text-3xl font-bold">Roadmap</h2>
+                <ul className="list-disc pl-6 space-y-2 text-slate-300">
+                  <li><strong>Q3 2025</strong>  Watcher API GA · Stripe billing · MVP dashboard</li>
+                  <li><strong>Q4 2025</strong>  Mobile PWA · Inventory QR scanner · Affiliate marketplace</li>
+                  <li><strong>Q1 2026</strong>  Sat‑SMS fallback · Native‑language feed expansion</li>
+                  <li><strong>Q2 2026</strong>  Insurance‑score API · White‑label for veteran & LDS networks</li>
+                </ul>
+              </section>
+            )}
+
+            {section==='contact' && (
+              <section className="space-y-6 fade-in">
+                <h2 className="text-3xl font-bold">Get in Touch</h2>
+                <p className="text-slate-300 max-w-2xl">Interested in early access, investment, or pilot programs for your community? Reach out via <a href="mailto:founder@civil-net.io" className="underline text-teal-400">founder@civil-net.io</a> and let’s build resilient futures together.</p>
+              </section>
+            )}
+          </main>
+
+          <footer className="text-center py-6 text-xs text-slate-500">© {new Date().getFullYear()} Civil‑Net Cooperative · Built with React + Tailwind • No build step</footer>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
