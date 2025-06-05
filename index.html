@@ -12,117 +12,258 @@
       --muted: #cbd5e1;
       --teal: #2dd4bf;
     }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
       margin: 0;
       min-height: 100vh;
       font-family: system-ui, sans-serif;
       color: var(--text);
-      background: linear-gradient(to bottom right, var(--bg1), var(--bg2), var(--bg1));
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg1) 100%);
+      overflow-x: hidden;
     }
+    
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      background: rgba(15,23,42,0.8);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15,23,42,0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
+    
     header .wrapper {
-      max-width: 1024px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+    
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--text) 0%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
     nav button {
       background: none;
       border: none;
-      color: inherit;
-      margin-left: 1rem;
+      color: var(--muted);
+      padding: 0.5rem 1rem;
       cursor: pointer;
       font-size: 0.875rem;
+      transition: all 0.2s ease;
+      border-radius: 0.5rem;
+      white-space: nowrap;
     }
-    nav button.active,
+    
     nav button:hover {
+      color: var(--text);
+      background: rgba(45, 212, 191, 0.1);
+    }
+    
+    nav button.active {
       color: var(--teal);
+      background: rgba(45, 212, 191, 0.15);
     }
+    
     main {
-      max-width: 1024px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+      margin-top: 80px;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
+    
+    .content-wrapper {
+      max-width: 1200px;
+      width: 100%;
+    }
+    
     section {
       display: none;
-      margin-top: 2rem;
+      animation: fadeIn 0.4s ease;
     }
+    
     section.active {
       display: block;
-      animation: fadeIn 0.3s ease;
     }
+    
+    .hero {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    .highlight {
+      color: var(--teal);
+    }
+    
     .grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
+      margin-top: 3rem;
     }
-    @media (min-width: 768px) {
-      .grid-two {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+    
     .card {
-      background: rgba(30,41,59,0.6);
+      background: rgba(30,41,59,0.5);
+      border: 1px solid rgba(45, 212, 191, 0.1);
       border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    
+    .card:hover {
+      border-color: rgba(45, 212, 191, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
-    .btn {
-      background: var(--teal);
-      color: #000;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
+    
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
     }
-    .btn:hover {
-      filter: brightness(1.1);
+    
+    .card p {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.5;
     }
+    
+    .card ul, .card ol {
+      color: var(--muted);
+      font-size: 0.875rem;
+      padding-left: 1.25rem;
+      margin: 0.5rem 0;
+    }
+    
+    .card li {
+      margin: 0.25rem 0;
+    }
+    
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 1rem;
+      margin: 2rem 0;
       font-size: 0.875rem;
-      color: var(--muted);
+      background: rgba(30,41,59,0.3);
+      border-radius: 0.5rem;
+      overflow: hidden;
     }
+    
     th, td {
-      border: 1px solid #334155;
-      padding: 0.5rem;
-      vertical-align: top;
+      border: 1px solid rgba(51,65,85,0.5);
+      padding: 0.75rem;
+      text-align: left;
     }
+    
     th {
-      background: rgba(51,65,85,0.6);
+      background: rgba(51,65,85,0.5);
+      font-weight: 600;
+      color: var(--text);
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.75rem;
+    
+    td {
       color: var(--muted);
     }
+    
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-header p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 600px;
+    }
+    
+    @media (max-width: 768px) {
+      header .wrapper {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      nav {
+        justify-content: center;
+      }
+      
+      main {
+        margin-top: 120px;
+        padding: 1rem;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      table {
+        font-size: 0.75rem;
+      }
+      
+      th, td {
+        padding: 0.5rem;
+      }
+    }
+    
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: none; }
+      from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrapper">
-      <h1 style="font-size:1.5rem;font-weight:600;">Civil‑Net</h1>
+      <div class="logo">Civil‑Net</div>
       <nav id="nav">
         <button data-section="overview" class="active">Overview</button>
         <button data-section="families">Families</button>
@@ -138,303 +279,529 @@
     </div>
   </header>
 
-  <main id="content">
-    <section id="overview" class="active grid grid-two">
-      <div>
-        <h2 style="font-size:2rem;font-weight:700;line-height:1.2;">
-          Empower families & teams to <span style="color:var(--teal);">anticipate</span>,
-          <span style="color:var(--teal);">coordinate</span> & <span style="color:var(--teal);">thrive</span> under disruption.
-        </h2>
-        <p style="color:var(--muted); font-size:1rem;">
-          Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, turning complex crises into actionable checklists for households, SMEs, and affinity groups.
+  <main>
+    <div class="content-wrapper">
+      <section id="overview" class="active">
+        <div class="hero">
+          <h2>
+            Empower families & teams to <span class="highlight">anticipate</span>,
+            <span class="highlight">coordinate</span> & <span class="highlight">thrive</span> under disruption.
+          </h2>
+          <p>
+            Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, 
+            turning complex crises into actionable checklists for households, SMEs, and affinity groups.
+          </p>
+        </div>
+      </section>
+
+      <section id="families">
+        <div class="section-header">
+          <h2>For Families</h2>
+          <p>Civil‑Net streamlines household readiness through clear checklists and private coordination tools.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>How It Works</h3>
+            <ol>
+              <li>Signal threshold reached via Watcher API</li>
+              <li>Validate alerts with your family group</li>
+              <li>Activate shared task lists & logistics</li>
+              <li>Track progress until the situation resolves</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3>Benefits</h3>
+            <p>Peace of mind and bulk‑buy savings. Keep costs low by pooling resources and only buying what's needed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="investors">
+        <div class="section-header">
+          <h2>For Investors</h2>
+          <p>Civil‑Net earns recurring revenue from subscriptions and white‑label licensing.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Business Model</h3>
+            <ul>
+              <li>Lean team with <em>cash‑flow positive</em> target in year two</li>
+              <li>Competitors focus on enterprise; we own the family niche</li>
+              <li>GTM via community groups and affinity channels</li>
+              <li>Exit potential: acquisition by SaaS security or comms players</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="section-header">
+          <h2>Why Care?</h2>
+          <p>Disruption is global—from natural disasters to supply shocks. Civil‑Net helps everyday people stay informed and act quickly, building resilience for communities and nations alike.</p>
+        </div>
+      </section>
+
+      <section id="modules">
+        <div class="section-header">
+          <h2>Core Modules</h2>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Watcher API</h3>
+            <p>Real‑time regex monitoring of news feeds with webhook dispatch.</p>
+            <ul>
+              <li>Native‑language expansion</li>
+              <li>Custom regex & geofences</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Ops Board</h3>
+            <p>Role & asset matrix with color alerts synced to watcher triggers.</p>
+            <ul>
+              <li>Offline‑first PWA</li>
+              <li>CSV/ICS export for partners</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Inventory</h3>
+            <p>QR‑scan supplies, track burn‑rate by family size.</p>
+            <ul>
+              <li>Auto reorder thresholds</li>
+              <li>Printable PDF/CSV lists</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Skill Scheduler</h3>
+            <p>Calendar & push alerts for drills and after‑action reviews.</p>
+            <ul>
+              <li>Video integration</li>
+              <li>Community badge system</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="market">
+        <div class="section-header">
+          <h2>Market Snapshot</h2>
+        </div>
+        <div class="card">
+          <p>
+            ~8 million U.S. households identify as serious preparedness‑minded. A $15/mo freemium conversion at 0.5% yields $7M ARR potential. 
+            Civil‑Net targets the white space in family‑grade but data‑driven readiness.
+          </p>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="section-header">
+          <h2>Roadmap</h2>
+        </div>
+        <div class="card">
+          <ul>
+            <li><strong>Q3 2025</strong> — Watcher API GA · Billing integration · MVP dashboard</li>
+            <li><strong>Q4 2025</strong> — Mobile PWA · Inventory QR scanner · Affiliate marketplace</li>
+            <li><strong>Q1 2026</strong> — Sat‑SMS fallback · Native‑language feed expansion</li>
+            <li><strong>Q2 2026</strong> — Insurance‑score API · White‑label for veteran & community networks</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="blueprint">
+        <div class="section-header">
+          <h2>Clan Mobilization Blueprint</h2>
+          <p>A scalable plan for family-based emergency response, organized by functional cells with clear triggers.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Functional Cells</h3>
+            <ul>
+              <li><strong>Medical</strong> – triage SOPs, 30-day meds, secure records</li>
+              <li><strong>Logistics</strong> – inventory stocks, assign depots, burn-rate forecasts</li>
+              <li><strong>Mobility</strong> – rally routes, fuel caches, convoy SOP</li>
+              <li><strong>Comms</strong> – Signal → Matrix → ham radio stack, key rotation</li>
+              <li><strong>Finance</strong> – coop LLC, credit union accounts, aid agreements</li>
+              <li><strong>Security</strong> – range days, standardized calibers, rules of engagement</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Standing Triggers</h3>
+            <ol>
+              <li><strong>Green</strong> – maintain chat and inventories</li>
+              <li><strong>Yellow</strong> – 72‑h check-in, pre-stage essentials</li>
+              <li><strong>Orange</strong> – wire funds, load pallets, site security</li>
+              <li><strong>Red</strong> – phased relocation, 24/7 watch, nightly ham nets</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="manual">
+        <div class="section-header">
+          <h2>Companion Field Manual</h2>
+          <p>Reference ladder and signals for rapid mobilization.</p>
+        </div>
+
+        <h3>1 · Escalation Ladder & Playbooks</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Band</th>
+              <th>Trigger Examples</th>
+              <th>Immediate Actions</th>
+              <th>48h–1 week</th>
+              <th>1 week–1 mo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Green (Normal readiness)</td>
+              <td>
+                <ul>
+                  <li>No watcher hits</li>
+                  <li>Markets stable</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Quarterly inventory audit</li>
+                  <li>Field-day calendar locked</li>
+                </ul>
+              </td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Blue (Mild tension)</td>
+              <td>
+                <ul>
+                  <li>Any 2 second-ring indicators</li>
+                  <li>Commodity futures ±15%</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Top-off fuel & cash</li>
+                  <li>Run clan call-tree ping</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Swap 5% cash into bullion/USDC</li>
+                  <li>Infant supplies 60 days</li>
+                </ul>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Yellow (Strategic alignment)</td>
+              <td>
+                <ul>
+                  <li>First-ring industrial hit</li>
+                  <li>Major oil unit announced</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Stage 20% gear to convoy pallets</li>
+                  <li>Surge online revenue streams</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Activate coop LLC credit line</li>
+                  <li>Surgeon confirms med-evac plan</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Lease storage bay for 3 mo</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Orange (Financial controls)</td>
+              <td>
+                <ul>
+                  <li>Capital-outflow gate</li>
+                  <li>Dual-currency payroll decree</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Withdraw max ATM/cash-advance</li>
+                  <li>Convert 20% checking → cash/bullion</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>East-coast clan drives preload to redoubt</li>
+                  <li>Guns/ammo buy completes</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>If wage/price board passes—resign city lease; move</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Red (Kinetic hints)</td>
+              <td>
+                <ul>
+                  <li>War-risk halt</li>
+                  <li>Missile strike on foreign port</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Execute phased bug-out (infants & elders first)</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Establish 24/7 local perimeter watch</li>
+                  <li>Begin weekly CERT net</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Rotate field-days to monthly live-fire & med</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Crimson (Homeland attack)</td>
+              <td>
+                <ul>
+                  <li>Confirmed strike on CONUS coast</li>
+                  <li>National Guard mobilization orders</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Full clan consolidation at redoubt within 24h</li>
+                  <li>Cut non-encrypted comms; ham only</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Solar + cistern online</li>
+                  <li>Initiate micro-ag plots</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Launch barter side-hustle</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Black (Sustained warfare)</td>
+              <td>
+                <ul>
+                  <li>Draft & ration cards issued</li>
+                  <li>Interstate shipping interdicted</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Transition to war-economy SOP</li>
+                  <li>Rotate able adults to local defence</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Start monthly OPSEC brief</li>
+                  <li>Update burn-rate nightly</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Plan for second-site expansion</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2 · High-Payoff Signals</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Signal Idea</th>
+              <th>Regex Hints</th>
+              <th>Why Valuable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Emergency Fuel Waiver (EPA)</td>
+              <td>EPA issues.*waiver.*RVP</td>
+              <td>Shows gov't expects refinery/pipeline disruption.</td>
+            </tr>
+            <tr>
+              <td>Selective Service Reactivation Drill</td>
+              <td>Selective Service System readiness exercise</td>
+              <td>Indicates draft politically viable.</td>
+            </tr>
+            <tr>
+              <td>Cyber Shielding Order</td>
+              <td>Binding Operational Directive isolation federal civilian</td>
+              <td>Signals imminent retaliatory cyber campaign.</td>
+            </tr>
+            <tr>
+              <td>Treasury Market Holiday</td>
+              <td>Treasury market unscheduled closure</td>
+              <td>Only occurs if liquidity freeze or attack.</td>
+            </tr>
+            <tr>
+              <td>NORAD Tracks</td>
+              <td>NORAD increased readiness state</td>
+              <td>Rare public hint of DEFCON shift.</td>
+            </tr>
+            <tr>
+              <td>Rail Priority Orders</td>
+              <td>Federal Railroad Administration priority order</td>
+              <td>WWII-era authority if inland convoy critical.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3 · DEFCON Lag in History</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Conflict</th>
+              <th>Real-world escalation</th>
+              <th>Public DEFCON shift</th>
+              <th>Lag / Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cuban Missile Crisis (1962)</td>
+              <td>Soviet R‑12s in Cuba; U‑2 shot down</td>
+              <td>DEFCON‑3 then -2</td>
+              <td>~12h after photos; public knew days later.</td>
+            </tr>
+            <tr>
+              <td>Yom Kippur War (1973)</td>
+              <td>USSR air-lifts to Egypt/Syria</td>
+              <td>U.S. forces to DEFCON‑3</td>
+              <td>36h after intel intercept; embargo under way.</td>
+            </tr>
+            <tr>
+              <td>9/11 (2001)</td>
+              <td>Hijackings & strikes</td>
+              <td>NORAD to DEFCON‑3 (some units 2)</td>
+              <td>~2h after first impact; public heard only "Alert Con."</td>
+            </tr>
+            <tr>
+              <td>Ukraine Invasion (2022)</td>
+              <td>Russia crosses border</td>
+              <td>U.S. posture unchanged publicly</td>
+              <td>Modern era rarely discloses DEFCON.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">
+          Take-away: public DEFCON leaks arrive late—Civil‑Net's triggers buy you a vital 24–72h.
         </p>
-        <button id="exploreBtn" class="btn">See Families →</button>
-      </div>
-      <div class="card" style="text-align:center;">
-        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
-          <rect width="200" height="120" rx="12" fill="#1e293b"/>
-          <path d="M20 60h160" stroke="#334155" stroke-width="4" stroke-dasharray="4 8"/>
-          <circle cx="100" cy="60" r="12" fill="#2dd4bf"/>
-        </svg>
-      </div>
-    </section>
+      </section>
 
-    <section id="blueprint">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Clan Mobilization Blueprint</h2>
-      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">A scalable plan for family-based emergency response, organized by functional cells with clear triggers.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Functional Cells</h3>
-          <ul style="padding-left:1rem;font-size:0.875rem;color:var(--muted);list-style:disc;">
-            <li>Medical – triage SOPs, 30-day meds, secure records</li>
-            <li>Logistics – inventory stocks, assign depots, burn-rate forecasts</li>
-            <li>Mobility – rally routes, fuel caches, convoy SOP</li>
-            <li>Comms – Signal ➜ Matrix ➜ ham radio stack, key rotation</li>
-            <li>Finance – coop LLC, credit union accounts, aid agreements</li>
-            <li>Security – range days, standardized calibers, rules of engagement</li>
-          </ul>
+      <section id="platform">
+        <div class="section-header">
+          <h2>Platform Details</h2>
         </div>
-        <div class="card">
-          <h3>Standing Triggers</h3>
-          <ol style="padding-left:1rem;font-size:0.875rem;color:var(--muted);">
-            <li><strong>Green</strong> – maintain chat and inventories</li>
-            <li><strong>Yellow</strong> – 72‑h check-in, pre-stage essentials</li>
-            <li><strong>Orange</strong> – wire funds, load pallets, site security</li>
-            <li><strong>Red</strong> – phased relocation, 24/7 watch, nightly ham nets</li>
-          </ol>
+        
+        <div class="card" style="margin-bottom: 2rem;">
+          <h3>TL;DR</h3>
+          <p>Civil‑Net marries live geopolitical signals with role-based logistics. Think Trello × Everbridge, priced for households.</p>
         </div>
-      </div>
-      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Mountain West sites offer low target profile, strong logistics, and friendly laws. Initial steps: set up a secure cloud space, form the coop LLC, and schedule the first field day.</p>
-    </section>
 
-    <section id="families">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Families</h2>
-      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net streamlines household readiness through clear checklists and private coordination tools.</p>
-      <ol style="color:var(--muted);padding-left:1rem;font-size:0.875rem;list-style:decimal;">
-        <li>Signal threshold reached via Watcher API</li>
-        <li>Validate alerts with your family group</li>
-        <li>Activate shared task lists & logistics</li>
-        <li>Track progress until the situation resolves</li>
-      </ol>
-      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Benefits include peace of mind and bulk‑buy savings. Keep costs low by pooling resources and only buying what’s needed.</p>
-    </section>
+        <h3>Product Pillars</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pillar</th>
+              <th>Key Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Watcher API</td>
+              <td>Regex RSS monitor, JSON webhook, 30 stock signals</td>
+            </tr>
+            <tr>
+              <td>Ops Board</td>
+              <td>Role & asset matrix, color-coded per band</td>
+            </tr>
+            <tr>
+              <td>Inventory Module</td>
+              <td>QR scan, burn-rate, export CSV/PDF</td>
+            </tr>
+            <tr>
+              <td>Skill Scheduler</td>
+              <td>Drill calendar, AAR uploads, video embed</td>
+            </tr>
+            <tr>
+              <td>Vault</td>
+              <td>Encrypted doc store, LLC templates</td>
+            </tr>
+          </tbody>
+        </table>
 
-    <section id="investors">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Investors</h2>
-      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net earns recurring revenue from subscriptions and white‑label licensing.</p>
-      <ul style="color:var(--muted);font-size:0.875rem;padding-left:1rem;list-style:disc;">
-        <li>Lean team with <em>cash‑flow positive</em> target in year two</li>
-        <li>Competitors focus on enterprise; we own the family niche</li>
-        <li>GTM via community groups and affinity channels</li>
-        <li>Exit potential: acquisition by SaaS security or comms players</li>
-      </ul>
-    </section>
+        <h3>User Journey</h3>
+        <ol style="color:var(--muted);font-size:0.875rem;padding-left:1.5rem;margin:2rem 0;">
+          <li>Sign-up (freemium) and connect watcher.</li>
+          <li>Import quick-start checklist (Green band).</li>
+          <li>First signal fires → tasks auto-populate.</li>
+          <li>Family drills logged; burn-rate auto-calculates.</li>
+          <li>Upsell to paid tier for extras.</li>
+        </ol>
 
-    <section id="why">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Why Care?</h2>
-      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Disruption is global—from natural disasters to supply shocks. Civil‑Net helps everyday people stay informed and act quickly, building resilience for communities and nations alike.</p>
-    </section>
+        <h3>Business Model</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Price</th>
+              <th>Limits / Extras</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Free</td>
+              <td>$0</td>
+              <td>1 location · 3 users · 10 inventory lines</td>
+            </tr>
+            <tr>
+              <td>Pro</td>
+              <td>$10/mo</td>
+              <td>Unlimited users/signals · doc vault</td>
+            </tr>
+            <tr>
+              <td>Family-Enterprise</td>
+              <td>$25/mo</td>
+              <td>Multi-site · sat-SMS fallback · insurance-score API</td>
+            </tr>
+          </tbody>
+        </table>
 
-    <section id="modules">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Core Modules</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Watcher API</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">Real‑time regex monitoring of news feeds with webhook dispatch.</p>
-          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
-            <li>Native‑language expansion via GDELT & NewsAPI</li>
-            <li>Custom regex & geofences</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Ops Board</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">Role & asset matrix with color alerts synced to watcher triggers.</p>
-          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
-            <li>Offline‑first PWA</li>
-            <li>CSV/ICS export for partners</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Inventory</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">QR‑scan supplies, track burn‑rate by family size.</p>
-          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
-            <li>Auto reorder thresholds</li>
-            <li>Printable PDF/CSV lists</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Skill Scheduler</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">Calendar & push alerts for drills and after‑action reviews.</p>
-          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
-            <li>YouTube and LMS integration</li>
-            <li>Community badge system</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="market">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Market Snapshot</h2>
-      <p style="color:var(--muted); font-size:1rem; max-width:48rem;">
-        ~8 million U.S. households identify as serious preparedness‑minded. A $15/mo freemium conversion at 0.5 % yields $7 M ARR potential. Competitors focus on enterprise (Everbridge) or static checklists. Civil‑Net targets the white space in family‑grade but data‑driven readiness.
-      </p>
-    </section>
-
-    <section id="roadmap">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Roadmap</h2>
-      <ul style="color:var(--muted); font-size:1rem; padding-left:1rem; list-style: disc;">
-        <li><strong>Q3 2025</strong>  Watcher API GA · Stripe billing · MVP dashboard</li>
-        <li><strong>Q4 2025</strong>  Mobile PWA · Inventory QR scanner · Affiliate marketplace</li>
-        <li><strong>Q1 2026</strong>  Sat‑SMS fallback · Native‑language feed expansion</li>
-        <li><strong>Q2 2026</strong>  Insurance‑score API · White‑label for veteran & LDS networks</li>
-      </ul>
-    </section>
-
-    <section id="manual">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Companion Field Manual</h2>
-      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Reference ladder and signals for rapid mobilization.</p>
-
-      <h3>1 · Escalation Ladder &amp; Playbooks</h3>
-      <table>
-        <thead>
-          <tr><th>Band</th><th>Trigger Examples</th><th>Immediate Actions</th><th>48h–1&nbsp;week</th><th>1&nbsp;week–1&nbsp;mo</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Green (Normal readiness)</td>
-            <td><ul><li>No watcher hits</li><li>Markets stable</li></ul></td>
-            <td><ul><li>Quarterly inventory audit</li><li>Field-day calendar locked</li></ul></td>
-            <td>—</td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td>Blue (Mild tension)</td>
-            <td><ul><li>Any 2 second-ring indicators (DEI repeal + price board draft)</li><li>Commodity futures ±15&nbsp;%</li></ul></td>
-            <td><ul><li>Top-off fuel &amp; cash</li><li>Run clan call-tree ping</li></ul></td>
-            <td><ul><li>Swap 5&nbsp;% cash into bullion/USDC</li><li>Infant supplies 60&nbsp;days</li></ul></td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td>Yellow (Strategic alignment)</td>
-            <td><ul><li>First-ring industrial hit (ASML licence)</li><li>BRICS oil unit announced</li></ul></td>
-            <td><ul><li>Stage 20&nbsp;% gear to convoy pallets</li><li>Surge YouTube/Patreon uploads for cash</li></ul></td>
-            <td><ul><li>Activate coop LLC credit line</li><li>Surgeon confirms med-evac plan</li></ul></td>
-            <td><ul><li>Lease Utah/CO storage bay for 3&nbsp;mo</li></ul></td>
-          </tr>
-          <tr>
-            <td>Orange (Financial controls)</td>
-            <td><ul><li>Capital-outflow gate</li><li>Dual-currency payroll decree</li></ul></td>
-            <td><ul><li>Withdraw max ATM/cash-advance</li><li>Convert 20&nbsp;% checking → cash/bullion</li></ul></td>
-            <td><ul><li>East-coast clan drives preload to redoubt</li><li>Guns/ammo buy completes</li></ul></td>
-            <td><ul><li>If wage/price board passes—resign city lease; move</li></ul></td>
-          </tr>
-          <tr>
-            <td>Red (Kinetic hints)</td>
-            <td><ul><li>Lloyd’s war-risk halt</li><li>Missile strike on foreign port tied to U.S. supply chain</li></ul></td>
-            <td><ul><li>Execute phased bug-out (infants &amp; elders first)</li></ul></td>
-            <td><ul><li>Establish 24/7 local perimeter watch</li><li>Begin weekly CERT net</li></ul></td>
-            <td><ul><li>Rotate field-days to monthly live-fire &amp; med</li></ul></td>
-          </tr>
-          <tr>
-            <td>Crimson (Homeland attack)</td>
-            <td><ul><li>Confirmed cruise/hypersonic hit on CONUS coast</li><li>National Guard mobilization orders</li></ul></td>
-            <td><ul><li>Full clan consolidation at redoubt within 24&nbsp;h</li><li>Cut non-encrypted comms; ham only</li></ul></td>
-            <td><ul><li>Solar + cistern online</li><li>Initiate micro-ag plots; baby rabbit/fowl</li></ul></td>
-            <td><ul><li>Launch barter side-hustle (water fill, solar phone charge)</li></ul></td>
-          </tr>
-          <tr>
-            <td>Black (Sustained warfare)</td>
-            <td><ul><li>Draft &amp; ration cards issued</li><li>Interstate shipping interdicted</li></ul></td>
-            <td><ul><li>Transition to war-economy SOP</li><li>Rotate able adults to local defence, ag, med shifts</li></ul></td>
-            <td><ul><li>Start monthly OPSEC brief</li><li>Update burn-rate nightly</li></ul></td>
-            <td><ul><li>Plan for second-site expansion (redundant enclave)</li></ul></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>2 · High-Payoff Signals</h3>
-      <table>
-        <thead>
-          <tr><th>Signal Idea</th><th>Regex Hints</th><th>Why Valuable</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Emergency Fuel Waiver (EPA)</td><td>EPA issues.*waiver.*RVP</td><td>Shows gov’t expects refinery/pipeline disruption.</td></tr>
-          <tr><td>Selective Service Reactivation Drill</td><td>Selective Service System readiness exercise</td><td>Indicates draft politically viable.</td></tr>
-          <tr><td>Cyber Shielding Order</td><td>Binding Operational Directive isolation federal civilian</td><td>Signals imminent retaliatory cyber campaign.</td></tr>
-          <tr><td>Treasury Market Holiday</td><td>Treasury market unscheduled closure</td><td>Only occurs if liquidity freeze or attack.</td></tr>
-          <tr><td>NORAD Tracks</td><td>NORAD increased readiness state</td><td>Rare public hint of DEFCON shift.</td></tr>
-          <tr><td>Rail Priority Orders</td><td>Federal Railroad Administration priority order</td><td>WWII-era authority if inland convoy critical.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>3 · DEFCON Lag in History</h3>
-      <table>
-        <thead>
-          <tr><th>Conflict</th><th>Real-world escalation</th><th>Public DEFCON shift</th><th>Lag / Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Cuban Missile Crisis (1962)</td><td>Soviet R‑12s in Cuba; U‑2 shot down</td><td>DEFCON‑3 then -2</td><td>~12h after photos; public knew days later.</td></tr>
-          <tr><td>Yom Kippur War (1973)</td><td>USSR air-lifts to Egypt/Syria</td><td>U.S. forces to DEFCON‑3</td><td>36h after intel intercept; embargo under way.</td></tr>
-          <tr><td>9/11 (2001)</td><td>Hijackings &amp; strikes</td><td>NORAD to DEFCON‑3 (some units 2)</td><td>~2h after first impact; public heard only “Alert Con.”</td></tr>
-          <tr><td>Ukraine Invasion (2022)</td><td>Russia crosses border</td><td>U.S. posture unchanged publicly</td><td>Modern era rarely discloses DEFCON.</td></tr>
-        </tbody>
-      </table>
-      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Take-away: public DEFCON leaks arrive late—Civil‑Net’s triggers buy you a vital 24–72 h.</p>
-    </section>
-
-    <section id="platform">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Platform Details</h2>
-      <h3>TL;DR</h3>
-      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net marries live geopolitical signals with role-based logistics. Think Trello × Everbridge, priced for households.</p>
-
-      <h3>Product Pillars</h3>
-      <table>
-        <thead>
-          <tr><th>Pillar</th><th>Key Features</th><th>Tech Stack</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Watcher API</td><td>Regex RSS monitor, JSON webhook, 30 stock signals</td><td>FastAPI/Node micro-service; cron actions</td></tr>
-          <tr><td>Ops Board</td><td>Role &amp; asset matrix, color-coded per band</td><td>React (CDN) + Tailwind; localStorage/Supabase</td></tr>
-          <tr><td>Inventory Module</td><td>QR scan, burn-rate, export CSV/PDF</td><td>QuaggaJS; html2pdf.js</td></tr>
-          <tr><td>Skill Scheduler</td><td>Drill calendar, AAR uploads, YouTube embed</td><td>Fullcalendar.io; S3/R2 storage</td></tr>
-          <tr><td>Vault</td><td>Encrypted doc store, LLC templates</td><td>Client-side AES + object storage</td></tr>
-        </tbody>
-      </table>
-
-      <h3>User Journey</h3>
-      <ol style="color:var(--muted);font-size:0.875rem;padding-left:1rem;">
-        <li>Sign-up (freemium) and connect watcher.</li>
-        <li>Import quick-start checklist (Green band).</li>
-        <li>First signal fires → tasks auto-populate.</li>
-        <li>Family drills logged; burn-rate auto-calculates.</li>
-        <li>Upsell to paid tier for extras.</li>
-      </ol>
-
-      <h3>Business Model</h3>
-      <table>
-        <thead>
-          <tr><th>Tier</th><th>Price</th><th>Limits / Extras</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Free</td><td>$0</td><td>1 location · 3 users · 10 inventory lines</td></tr>
-          <tr><td>Pro</td><td>$10/mo</td><td>Unlimited users/signals · doc vault</td></tr>
-          <tr><td>Family-Enterprise</td><td>$25/mo</td><td>Multi-site · sat-SMS fallback · insurance-score API</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Tech Deployment</h3>
-      <ol style="color:var(--muted);font-size:0.875rem;padding-left:1rem;">
-        <li>Static SPA using CDN React and Tailwind.</li>
-        <li>GitHub Pages for hosting.</li>
-        <li>Watcher micro-service via cron or Fly.io.</li>
-        <li>Data in Supabase or Firestore with encryption.</li>
-      </ol>
-
-      <h3>Key Advantages</h3>
-      <ul style="color:var(--muted);font-size:0.875rem;padding-left:1rem;list-style:disc;">
-        <li>Zero-install onboarding.</li>
-        <li>Family-centric UX with enterprise-grade feeds.</li>
-        <li>Plugin economics for partner revenue.</li>
-        <li>Ready for community affiliations.</li>
-      </ul>
-
-      <h3>Next Steps</h3>
-      <ol style="color:var(--muted);font-size:0.875rem;padding-left:1rem;">
-        <li>Publish static index.html under /docs.</li>
-        <li>Hook watcher webhook to a free Supabase DB.</li>
-        <li>Pilot with one extended-family group.</li>
-        <li>Line up affiliate deals before public beta.</li>
-      </ol>
-    </section>
-
+        <h3>Key Advantages</h3>
+        <ul style="color:var(--muted);font-size:0.875rem;padding-left:1.5rem;list-style:disc;">
+          <li>Zero-install onboarding.</li>
+          <li>Family-centric UX with enterprise-grade feeds.</li>
+          <li>Plugin economics for partner revenue.</li>
+          <li>Ready for community affiliations.</li>
+        </ul>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    © <span id="year"></span> Civil‑Net Cooperative · No build step
-  </footer>
-
   <script>
-    const sections = document.querySelectorAll('main > section');
+    const sections = document.querySelectorAll('main section');
     const navButtons = document.querySelectorAll('nav button');
     
     function showSection(id) {
@@ -449,10 +816,6 @@
     navButtons.forEach(btn => {
       btn.addEventListener('click', () => showSection(btn.dataset.section));
     });
-
-    document.getElementById('exploreBtn').addEventListener('click', () => showSection('families'));
-
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
