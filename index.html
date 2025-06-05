@@ -110,7 +110,11 @@
       <h1 style="font-size:1.5rem;font-weight:600;">Civil‑Net</h1>
       <nav id="nav">
         <button data-section="overview" class="active">Overview</button>
-        <button data-section="modules">Core Modules</button>
+        <button data-section="families">Families</button>
+        <button data-section="investors">Investors</button>
+        <button data-section="why">Why Care?</button>
+        <button data-section="modules">Modules</button>
+
         <button data-section="market">Market</button>
         <button data-section="roadmap">Roadmap</button>
         <button data-section="contact">Contact</button>
@@ -128,11 +132,43 @@
         <p style="color:var(--muted); font-size:1rem;">
           Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, turning complex crises into actionable checklists for households, SMEs, and affinity groups.
         </p>
-        <button id="exploreBtn" class="btn">Explore Modules →</button>
+        <button id="exploreBtn" class="btn">See Families →</button>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=900&q=60" alt="Dashboard preview" style="width:100%; border-radius:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+      <div class="card" style="text-align:center;">
+        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+          <rect width="200" height="120" rx="12" fill="#1e293b"/>
+          <path d="M20 60h160" stroke="#334155" stroke-width="4" stroke-dasharray="4 8"/>
+          <circle cx="100" cy="60" r="12" fill="#2dd4bf"/>
+        </svg>
       </div>
+    </section>
+
+    <section id="families">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Families</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net streamlines household readiness through clear checklists and private coordination tools.</p>
+      <ol style="color:var(--muted);padding-left:1rem;font-size:0.875rem;list-style:decimal;">
+        <li>Signal threshold reached via Watcher API</li>
+        <li>Validate alerts with your family group</li>
+        <li>Activate shared task lists & logistics</li>
+        <li>Track progress until the situation resolves</li>
+      </ol>
+      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Benefits include peace of mind and bulk‑buy savings. Keep costs low by pooling resources and only buying what’s needed.</p>
+    </section>
+
+    <section id="investors">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Investors</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net earns recurring revenue from subscriptions and white‑label licensing.</p>
+      <ul style="color:var(--muted);font-size:0.875rem;padding-left:1rem;list-style:disc;">
+        <li>Lean team with <em>cash‑flow positive</em> target in year two</li>
+        <li>Competitors focus on enterprise; we own the family niche</li>
+        <li>GTM via community groups and affinity channels</li>
+        <li>Exit potential: acquisition by SaaS security or comms players</li>
+      </ul>
+    </section>
+
+    <section id="why">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Why Care?</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Disruption is global—from natural disasters to supply shocks. Civil‑Net helps everyday people stay informed and act quickly, building resilience for communities and nations alike.</p>
     </section>
 
     <section id="modules">
@@ -140,19 +176,35 @@
       <div class="cards">
         <div class="card">
           <h3>Watcher API</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">Real‑time regex monitoring of global English feeds with webhook dispatch. Extensible to GDELT & NewsAPI for native‑language reach.</p>
+          <p style="color:var(--muted);font-size:0.875rem;">Real‑time regex monitoring of news feeds with webhook dispatch.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>Native‑language expansion via GDELT & NewsAPI</li>
+            <li>Custom regex & geofences</li>
+          </ul>
         </div>
         <div class="card">
           <h3>Ops Board</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">Trello‑style role & asset matrix with color‑coded alerts synced to watcher triggers.</p>
+          <p style="color:var(--muted);font-size:0.875rem;">Role & asset matrix with color alerts synced to watcher triggers.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>Offline‑first PWA</li>
+            <li>CSV/ICS export for partners</li>
+          </ul>
         </div>
         <div class="card">
           <h3>Inventory</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">QR‑scan supplies, auto‑calculate burn‑rate by family size, export to CSV/PDF.</p>
+          <p style="color:var(--muted);font-size:0.875rem;">QR‑scan supplies, track burn‑rate by family size.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>Auto reorder thresholds</li>
+            <li>Printable PDF/CSV lists</li>
+          </ul>
         </div>
         <div class="card">
           <h3>Skill Scheduler</h3>
-          <p style="color:var(--muted);font-size:0.875rem;">Calendar & push alerts for drills, AAR uploads, YouTube field‑day integration.</p>
+          <p style="color:var(--muted);font-size:0.875rem;">Calendar & push alerts for drills and after‑action reviews.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>YouTube and LMS integration</li>
+            <li>Community badge system</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -203,8 +255,7 @@
       btn.addEventListener('click', () => showSection(btn.dataset.section));
     });
 
-    document.getElementById('exploreBtn').addEventListener('click', () => showSection('modules'));
-
+    document.getElementById('exploreBtn').addEventListener('click', () => showSection('families'));
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
