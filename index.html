@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<section id="platform">
+        <div class="section-header">
+          <h2>Platform Architecture</h2>
+          <p>Built for resilience—both technical and operational.</p>
+        </div>
+        
+        <div class="grid" style="margin-bottom: 2rem;">
+          <div class="card">
+            <h3>Technical Stack</h3>
+            <ul>
+              <li><strong>Watcher Engine:</strong> Python/FastAPI microservice monitoring RSS + APIs</li>
+              <li><strong>Frontend:</strong> React PWA with offline-first architecture</li>
+              <li><strong>Data Layer:</strong> PostgreSQL with encrypted backups</li>
+              <li><strong>Comms:</strong> Matrix/Signal bridges with ham radio protocols</li>
+              <li><strong>Deploy:</strong> Multi-region with edge caching</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Integration Partners</h3>
+            <ul>
+              <li><strong>Data feeds:</strong> Reuters, GDELT, government RSS</li>
+              <li><strong>Maps:</strong> OpenStreetMap with offline tiles</li>
+              <li><strong>Payments:</strong> Stripe with crypto fallback</li>
+              <li><strong>Storage:</strong> IPFS for distributed docs</li>
+              <li><strong>Alerts:</strong> Tw<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -98,7 +122,7 @@
       width: 100%;
     }
     
-    section {
+    <section {
       display: none;
       animation: fadeIn 0.4s ease;
     }
@@ -159,6 +183,12 @@
       color: var(--text);
     }
     
+    .card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--teal);
+    }
+    
     .card p {
       color: var(--muted);
       font-size: 0.875rem;
@@ -174,6 +204,25 @@
     
     .card li {
       margin: 0.25rem 0;
+    }
+    
+    .btn {
+      background: var(--teal);
+      color: var(--bg1);
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
     }
     
     table {
@@ -216,6 +265,26 @@
       color: var(--muted);
       font-size: 1rem;
       max-width: 600px;
+    }
+    
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .signal-card {
+      background: rgba(30,41,59,0.3);
+      border: 1px solid rgba(45, 212, 191, 0.1);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      transition: all 0.2s ease;
+    }
+    
+    .signal-card:hover {
+      border-color: rgba(45, 212, 191, 0.3);
+      background: rgba(30,41,59,0.5);
     }
     
     @media (max-width: 768px) {
@@ -284,34 +353,75 @@
       <section id="overview" class="active">
         <div class="hero">
           <h2>
-            Empower families & teams to <span class="highlight">anticipate</span>,
-            <span class="highlight">coordinate</span> & <span class="highlight">thrive</span> under disruption.
+            When <span class="highlight">22 strategic indicators</span> signal disruption, 
+            your family needs more than news—you need <span class="highlight">actionable intelligence</span>.
           </h2>
-          <p>
-            Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, 
-            turning complex crises into actionable checklists for households, SMEs, and affinity groups.
+          <p style="font-size: 1.25rem; margin-bottom: 2rem;">
+            Civil‑Net transforms geopolitical early-warning signals into family-scale action plans, 
+            helping you move from awareness to readiness before critical thresholds are crossed.
           </p>
+          <div class="grid" style="margin-top: 2rem;">
+            <div class="card">
+              <h3 style="color: var(--teal);">Real-Time Intelligence</h3>
+              <p>Monitor 22 strategic indicators from export controls to capital gates, with automated alerts when patterns match historical pre-conflict signals.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--teal);">Family Coordination</h3>
+              <p>Role-based action matrices that transform complex scenarios into clear responsibilities—from medical lead to logistics coordinator.</p>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--teal);">Proven Playbooks</h3>
+              <p>Historical precedent from 1938 Britain to 2022 Ukraine guides graduated response levels: Green → Yellow → Orange → Red.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="families">
         <div class="section-header">
           <h2>For Families</h2>
-          <p>Civil‑Net streamlines household readiness through clear checklists and private coordination tools.</p>
+          <p>Transform early warning into early action with graduated response protocols.</p>
         </div>
         <div class="grid">
           <div class="card">
-            <h3>How It Works</h3>
-            <ol>
-              <li>Signal threshold reached via Watcher API</li>
-              <li>Validate alerts with your family group</li>
-              <li>Activate shared task lists & logistics</li>
-              <li>Track progress until the situation resolves</li>
-            </ol>
+            <h3>Automated Monitoring</h3>
+            <p>Our Watcher API continuously scans for 22 strategic indicators:</p>
+            <ul style="font-size: 0.875rem;">
+              <li>Industrial policy shifts (DPA waivers, export controls)</li>
+              <li>Financial system stress (capital gates, FX restrictions)</li>
+              <li>Supply chain warnings (shipping insurance, strategic reserves)</li>
+              <li>Social control measures (emergency broadcasts, curfew laws)</li>
+            </ul>
           </div>
           <div class="card">
-            <h3>Benefits</h3>
-            <p>Peace of mind and bulk‑buy savings. Keep costs low by pooling resources and only buying what's needed.</p>
+            <h3>Graduated Response Levels</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 12px; height: 12px; background: #22c55e; border-radius: 50%;"></div>
+                <strong>Green:</strong> Normal monitoring, quarterly drills
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 12px; height: 12px; background: #eab308; border-radius: 50%;"></div>
+                <strong>Yellow:</strong> 72-hour check-ins, pre-stage supplies
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 12px; height: 12px; background: #f97316; border-radius: 50%;"></div>
+                <strong>Orange:</strong> Asset consolidation, relocation prep
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></div>
+                <strong>Red:</strong> Execute contingency plans
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Family Coordination Tools</h3>
+            <ul>
+              <li>Encrypted communication channels with fallback options</li>
+              <li>Role-based task assignments (Medical, Logistics, Security)</li>
+              <li>Inventory tracking with burn-rate calculations</li>
+              <li>Rally point mapping and convoy coordination</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -319,16 +429,34 @@
       <section id="investors">
         <div class="section-header">
           <h2>For Investors</h2>
-          <p>Civil‑Net earns recurring revenue from subscriptions and white‑label licensing.</p>
+          <p>Enterprise-grade crisis management technology, priced for the 8 million preparedness-minded U.S. households.</p>
         </div>
         <div class="grid">
           <div class="card">
-            <h3>Business Model</h3>
+            <h3>Market Opportunity</h3>
             <ul>
-              <li>Lean team with <em>cash‑flow positive</em> target in year two</li>
-              <li>Competitors focus on enterprise; we own the family niche</li>
-              <li>GTM via community groups and affinity channels</li>
-              <li>Exit potential: acquisition by SaaS security or comms players</li>
+              <li><strong>TAM:</strong> 8M households × $180/year = $1.44B addressable market</li>
+              <li><strong>Competition gap:</strong> Everbridge/Veoci serve enterprises at $50K+; prepper apps lack live data</li>
+              <li><strong>Affinity channels:</strong> LDS stakes, veteran groups, CERT teams provide natural distribution</li>
+              <li><strong>Revenue model:</strong> Freemium → $15-25/month subscriptions + marketplace fees</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Defensible Moat</h3>
+            <ul>
+              <li><strong>Network effects:</strong> Each family cell strengthens regional coordination</li>
+              <li><strong>Data advantage:</strong> Historical pattern library grows with each crisis</li>
+              <li><strong>Switching costs:</strong> Embedded coordination becomes mission-critical</li>
+              <li><strong>Regulatory alignment:</strong> FEMA/DHS encourage civilian preparedness</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Path to Profitability</h3>
+            <ul>
+              <li><strong>Y1:</strong> 1,000 beta families via LDS/veteran pilots</li>
+              <li><strong>Y2:</strong> 10,000 subscribers = $2.4M ARR (cash-flow positive)</li>
+              <li><strong>Y3:</strong> Add insurance partnerships, white-label enterprise</li>
+              <li><strong>Exit:</strong> Acquisition by crisis-management or insurance incumbent</li>
             </ul>
           </div>
         </div>
@@ -336,46 +464,88 @@
 
       <section id="why">
         <div class="section-header">
-          <h2>Why Care?</h2>
-          <p>Disruption is global—from natural disasters to supply shocks. Civil‑Net helps everyday people stay informed and act quickly, building resilience for communities and nations alike.</p>
+          <h2>Why Civil-Net? Why Now?</h2>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Historical Precedent</h3>
+            <p>Every major conflict follows predictable legal and economic patterns:</p>
+            <ul>
+              <li><strong>1938-39:</strong> Export controls, capital restrictions, civilian drill mandates preceded WWII by 12-18 months</li>
+              <li><strong>1973-74:</strong> Oil embargos, price controls, strategic reserve discussions marked Cold War escalation</li>
+              <li><strong>2022:</strong> Russian capital gates and partial mobilization gave 90-day warning before wider impacts</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Current Indicators (2025)</h3>
+            <p>Multiple warning lights already flashing:</p>
+            <ul>
+              <li>Defense Production Act becoming standing policy, not emergency measure</li>
+              <li>Section 232 tariffs weaponizing entire supply chains</li>
+              <li>CHIPS Act forcing >50% compute localization</li>
+              <li>Allies hoarding strategic materials</li>
+              <li>BRICS+ accelerating dollar alternatives</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>The Coordination Gap</h3>
+            <p>Enterprises have Everbridge. Governments have WebEOC. Families have... nothing.</p>
+            <p style="margin-top: 1rem;">Civil-Net fills this gap with:</p>
+            <ul>
+              <li>Family-affordable pricing ($15-25/month)</li>
+              <li>Role-based coordination (not just checklists)</li>
+              <li>Historical pattern matching</li>
+              <li>Legal, ethical framework</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section id="modules">
         <div class="section-header">
           <h2>Core Modules</h2>
+          <p>Enterprise-grade intelligence meets family-scale execution.</p>
         </div>
         <div class="grid">
           <div class="card">
             <h3>Watcher API</h3>
-            <p>Real‑time regex monitoring of news feeds with webhook dispatch.</p>
+            <p>Monitors 22 strategic indicators across global news feeds, government filings, and market data.</p>
             <ul>
-              <li>Native‑language expansion</li>
-              <li>Custom regex & geofences</li>
+              <li>Defense Production Act waivers</li>
+              <li>Export control changes (ASML, rare earths)</li>
+              <li>Lloyd's war-risk insurance shifts</li>
+              <li>Capital outflow gates</li>
+              <li>Strategic reserve announcements</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Ops Board</h3>
-            <p>Role & asset matrix with color alerts synced to watcher triggers.</p>
+            <h3>Family Ops Board</h3>
+            <p>Role-based coordination matrix that scales from household to extended clan.</p>
             <ul>
-              <li>Offline‑first PWA</li>
-              <li>CSV/ICS export for partners</li>
+              <li>Medical cell (triage SOPs, pharma stocks)</li>
+              <li>Logistics cell (inventory, burn-rate forecasts)</li>
+              <li>Mobility cell (convoy routes, fuel caches)</li>
+              <li>Security cell (standardized training, ROE)</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Inventory</h3>
-            <p>QR‑scan supplies, track burn‑rate by family size.</p>
+            <h3>Scenario Playbooks</h3>
+            <p>Pre-built response protocols based on historical precedent.</p>
             <ul>
-              <li>Auto reorder thresholds</li>
-              <li>Printable PDF/CSV lists</li>
+              <li>Supply chain disruption (2020 model)</li>
+              <li>Financial controls (Cyprus 2013)</li>
+              <li>Grid instability (Texas 2021)</li>
+              <li>Maritime blockade scenarios</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Skill Scheduler</h3>
-            <p>Calendar & push alerts for drills and after‑action reviews.</p>
+            <h3>Comms Fallback Stack</h3>
+            <p>Graduated communication redundancy for degraded environments.</p>
             <ul>
-              <li>Video integration</li>
-              <li>Community badge system</li>
+              <li>Primary: Encrypted messaging (Signal/Matrix)</li>
+              <li>Secondary: Mesh networks (Meshtastic)</li>
+              <li>Tertiary: Ham radio protocols</li>
+              <li>Quarterly drill scheduling</li>
             </ul>
           </div>
         </div>
@@ -409,393 +579,254 @@
 
       <section id="blueprint">
         <div class="section-header">
-          <h2>Clan Mobilization Blueprint</h2>
-          <p>A scalable plan for family-based emergency response, organized by functional cells with clear triggers.</p>
+          <h2>Implementation Blueprint</h2>
+          <p>From awareness to action—your roadmap to family resilience.</p>
         </div>
+        
+        <h3>Quick Start Guide</h3>
         <div class="grid">
           <div class="card">
-            <h3>Functional Cells</h3>
-            <ul>
-              <li><strong>Medical</strong> – triage SOPs, 30-day meds, secure records</li>
-              <li><strong>Logistics</strong> – inventory stocks, assign depots, burn-rate forecasts</li>
-              <li><strong>Mobility</strong> – rally routes, fuel caches, convoy SOP</li>
-              <li><strong>Comms</strong> – Signal → Matrix → ham radio stack, key rotation</li>
-              <li><strong>Finance</strong> – coop LLC, credit union accounts, aid agreements</li>
-              <li><strong>Security</strong> – range days, standardized calibers, rules of engagement</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Standing Triggers</h3>
+            <h4>Week 1: Foundation</h4>
             <ol>
-              <li><strong>Green</strong> – maintain chat and inventories</li>
-              <li><strong>Yellow</strong> – 72‑h check-in, pre-stage essentials</li>
-              <li><strong>Orange</strong> – wire funds, load pallets, site security</li>
-              <li><strong>Red</strong> – phased relocation, 24/7 watch, nightly ham nets</li>
+              <li>Deploy the GitHub Actions watcher</li>
+              <li>Create family Signal group</li>
+              <li>Assign initial roles (Medical, Logistics, etc.)</li>
+              <li>Complete basic inventory audit</li>
             </ol>
           </div>
+          <div class="card">
+            <h4>Month 1: Systems</h4>
+            <ol>
+              <li>Test communication fallback stack</li>
+              <li>Map primary & alternate rally points</li>
+              <li>Establish 3-month supply baseline</li>
+              <li>Schedule first coordination drill</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h4>Quarter 1: Network</h4>
+            <ol>
+              <li>Connect with local CERT/mutual aid</li>
+              <li>Identify extended family capabilities</li>
+              <li>Run first multi-site exercise</li>
+              <li>Document lessons learned</li>
+            </ol>
+          </div>
+        </div>
+
+        <h3>Core Principles</h3>
+        <div class="grid" style="margin-top: 2rem;">
+          <div class="card">
+            <h4>Legal & Ethical</h4>
+            <p>All activities within civil defense frameworks. No private militias, no illegal activities. Focus on community resilience and mutual aid.</p>
+          </div>
+          <div class="card">
+            <h4>Graduated Response</h4>
+            <p>Proportional actions tied to objective indicators. No panic, no overreaction. Each escalation level has clear triggers and defined actions.</p>
+          </div>
+          <div class="card">
+            <h4>Dual-Use Investment</h4>
+            <p>Every prep should provide peacetime value. Solar saves electricity, gardens provide food, skills training builds community.</p>
+          </div>
+        </div>
+
+        <h3>The Watcher Code</h3>
+        <div class="card" style="background: rgba(20,30,40,0.8); border: 1px solid var(--teal); margin-top: 2rem;">
+          <p style="font-family: monospace; font-size: 0.875rem; color: var(--teal); margin-bottom: 1rem;">
+            # Deploy your own early warning system in 3 steps:
+          </p>
+          <ol style="font-family: monospace; font-size: 0.875rem;">
+            <li>Fork the Civil-Net watcher repository</li>
+            <li>Add to your GitHub Actions (runs free every 30 min)</li>
+            <li>Customize the 22 signals for your specific concerns</li>
+          </ol>
+          <p style="margin-top: 1rem;">
+            <a href="#" class="btn" style="background: transparent; border: 2px solid var(--teal); color: var(--teal);">
+              View on GitHub →
+            </a>
+          </p>
+        </div>
+
+        <h3>Join the Network</h3>
+        <div class="card" style="text-align: center; margin-top: 2rem; background: rgba(45, 212, 191, 0.1);">
+          <h3 style="margin-bottom: 1rem;">Ready to move from reactive to proactive?</h3>
+          <p style="font-size: 1rem; margin-bottom: 1.5rem;">
+            Join thousands of families building resilience through early warning and coordinated action.
+          </p>
+          <button class="btn" style="font-size: 1.125rem; padding: 1rem 3rem;">
+            Start Free Trial
+          </button>
+          <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--muted);">
+            No credit card required · Free tier always available
+          </p>
         </div>
       </section>
 
       <section id="manual">
         <div class="section-header">
-          <h2>Companion Field Manual</h2>
-          <p>Reference ladder and signals for rapid mobilization.</p>
+          <h2>Early Warning Indicators</h2>
+          <p>22 strategic signals that historically precede major disruptions.</p>
         </div>
 
-        <h3>1 · Escalation Ladder & Playbooks</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Band</th>
-              <th>Trigger Examples</th>
-              <th>Immediate Actions</th>
-              <th>48h–1 week</th>
-              <th>1 week–1 mo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Green (Normal readiness)</td>
-              <td>
-                <ul>
-                  <li>No watcher hits</li>
-                  <li>Markets stable</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Quarterly inventory audit</li>
-                  <li>Field-day calendar locked</li>
-                </ul>
-              </td>
-              <td>—</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td>Blue (Mild tension)</td>
-              <td>
-                <ul>
-                  <li>Any 2 second-ring indicators</li>
-                  <li>Commodity futures ±15%</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Top-off fuel & cash</li>
-                  <li>Run clan call-tree ping</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Swap 5% cash into bullion/USDC</li>
-                  <li>Infant supplies 60 days</li>
-                </ul>
-              </td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td>Yellow (Strategic alignment)</td>
-              <td>
-                <ul>
-                  <li>First-ring industrial hit</li>
-                  <li>Major oil unit announced</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Stage 20% gear to convoy pallets</li>
-                  <li>Surge online revenue streams</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Activate coop LLC credit line</li>
-                  <li>Surgeon confirms med-evac plan</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Lease storage bay for 3 mo</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Orange (Financial controls)</td>
-              <td>
-                <ul>
-                  <li>Capital-outflow gate</li>
-                  <li>Dual-currency payroll decree</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Withdraw max ATM/cash-advance</li>
-                  <li>Convert 20% checking → cash/bullion</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>East-coast clan drives preload to redoubt</li>
-                  <li>Guns/ammo buy completes</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>If wage/price board passes—resign city lease; move</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Red (Kinetic hints)</td>
-              <td>
-                <ul>
-                  <li>War-risk halt</li>
-                  <li>Missile strike on foreign port</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Execute phased bug-out (infants & elders first)</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Establish 24/7 local perimeter watch</li>
-                  <li>Begin weekly CERT net</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Rotate field-days to monthly live-fire & med</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Crimson (Homeland attack)</td>
-              <td>
-                <ul>
-                  <li>Confirmed strike on CONUS coast</li>
-                  <li>National Guard mobilization orders</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Full clan consolidation at redoubt within 24h</li>
-                  <li>Cut non-encrypted comms; ham only</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Solar + cistern online</li>
-                  <li>Initiate micro-ag plots</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Launch barter side-hustle</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Black (Sustained warfare)</td>
-              <td>
-                <ul>
-                  <li>Draft & ration cards issued</li>
-                  <li>Interstate shipping interdicted</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Transition to war-economy SOP</li>
-                  <li>Rotate able adults to local defence</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Start monthly OPSEC brief</li>
-                  <li>Update burn-rate nightly</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Plan for second-site expansion</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <h3 style="margin: 2rem 0 1rem;">Industrial & Military Signals</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>1. EU Machine Tool Export Controls</h4>
+            <p>When Europe restricts precision manufacturing exports, industrial warfare preparation begins.</p>
+          </div>
+          <div class="card">
+            <h4>2. U.S. §303 Fuel Waivers</h4>
+            <p>Defense Production Act waivers for jet fuel/diesel signal expected maritime disruption.</p>
+          </div>
+          <div class="card">
+            <h4>3. Yuan Oil Settlement</h4>
+            <p>China-Saudi deals outside USD indicate accelerating de-dollarization.</p>
+          </div>
+          <div class="card">
+            <h4>4. TSMC Military Clauses</h4>
+            <p>Fab construction delays over "military use" provisions reveal chip weaponization.</p>
+          </div>
+        </div>
 
-        <h3>2 · High-Payoff Signals</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Signal Idea</th>
-              <th>Regex Hints</th>
-              <th>Why Valuable</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Emergency Fuel Waiver (EPA)</td>
-              <td>EPA issues.*waiver.*RVP</td>
-              <td>Shows gov't expects refinery/pipeline disruption.</td>
-            </tr>
-            <tr>
-              <td>Selective Service Reactivation Drill</td>
-              <td>Selective Service System readiness exercise</td>
-              <td>Indicates draft politically viable.</td>
-            </tr>
-            <tr>
-              <td>Cyber Shielding Order</td>
-              <td>Binding Operational Directive isolation federal civilian</td>
-              <td>Signals imminent retaliatory cyber campaign.</td>
-            </tr>
-            <tr>
-              <td>Treasury Market Holiday</td>
-              <td>Treasury market unscheduled closure</td>
-              <td>Only occurs if liquidity freeze or attack.</td>
-            </tr>
-            <tr>
-              <td>NORAD Tracks</td>
-              <td>NORAD increased readiness state</td>
-              <td>Rare public hint of DEFCON shift.</td>
-            </tr>
-            <tr>
-              <td>Rail Priority Orders</td>
-              <td>Federal Railroad Administration priority order</td>
-              <td>WWII-era authority if inland convoy critical.</td>
-            </tr>
-          </tbody>
-        </table>
+        <h3 style="margin: 2rem 0 1rem;">Economic Control Signals</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>10. Victory Bond Revival</h4>
+            <p>Government retail bonds indicate normal deficit financing under stress.</p>
+          </div>
+          <div class="card">
+            <h4>11. Commodity Currency</h4>
+            <p>Energy-backed scrip or CBDC deployment signals dollar instability prep.</p>
+          </div>
+          <div class="card">
+            <h4>12. Price/Wage Boards</h4>
+            <p>Wartime economic control legislation surfaces before supply shocks.</p>
+          </div>
+          <div class="card">
+            <h4>13. Capital Outflow Gates</h4>
+            <p>FX restrictions trap investor capital, signaling imminent devaluation.</p>
+          </div>
+        </div>
 
-        <h3>3 · DEFCON Lag in History</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Conflict</th>
-              <th>Real-world escalation</th>
-              <th>Public DEFCON shift</th>
-              <th>Lag / Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cuban Missile Crisis (1962)</td>
-              <td>Soviet R‑12s in Cuba; U‑2 shot down</td>
-              <td>DEFCON‑3 then -2</td>
-              <td>~12h after photos; public knew days later.</td>
-            </tr>
-            <tr>
-              <td>Yom Kippur War (1973)</td>
-              <td>USSR air-lifts to Egypt/Syria</td>
-              <td>U.S. forces to DEFCON‑3</td>
-              <td>36h after intel intercept; embargo under way.</td>
-            </tr>
-            <tr>
-              <td>9/11 (2001)</td>
-              <td>Hijackings & strikes</td>
-              <td>NORAD to DEFCON‑3 (some units 2)</td>
-              <td>~2h after first impact; public heard only "Alert Con."</td>
-            </tr>
-            <tr>
-              <td>Ukraine Invasion (2022)</td>
-              <td>Russia crosses border</td>
-              <td>U.S. posture unchanged publicly</td>
-              <td>Modern era rarely discloses DEFCON.</td>
-            </tr>
-          </tbody>
-        </table>
-        <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">
-          Take-away: public DEFCON leaks arrive late—Civil‑Net's triggers buy you a vital 24–72h.
+        <h3 style="margin: 2rem 0 1rem;">Social Control Signals</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>19. Emergency Broadcast Drills</h4>
+            <p>Monthly nationwide tests indicate homeland strike preparations.</p>
+          </div>
+          <div class="card">
+            <h4>20. Foreign Media Registration</h4>
+            <p>Information supply chain restrictions parallel physical controls.</p>
+          </div>
+          <div class="card">
+            <h4>21. Mandatory Civil Defense</h4>
+            <p>CBRN training requirements appear only in pre-conflict periods.</p>
+          </div>
+          <div class="card">
+            <h4>22. Pre-Approved Curfews</h4>
+            <p>Legal framework precedes implementation by 6-12 months.</p>
+          </div>
+        </div>
+
+        <p style="color: var(--muted); text-align: center; margin-top: 2rem;">
+          <em>Full indicator list with regex patterns available to subscribers</em>
         </p>
       </section>
 
       <section id="platform">
         <div class="section-header">
-          <h2>Platform Details</h2>
+          <h2>Platform Architecture</h2>
+          <p>Built for resilience—both technical and operational.</p>
         </div>
         
-        <div class="card" style="margin-bottom: 2rem;">
-          <h3>TL;DR</h3>
-          <p>Civil‑Net marries live geopolitical signals with role-based logistics. Think Trello × Everbridge, priced for households.</p>
+        <div class="grid" style="margin-bottom: 2rem;">
+          <div class="card">
+            <h3>Technical Stack</h3>
+            <ul>
+              <li><strong>Watcher Engine:</strong> Python/FastAPI microservice monitoring RSS + APIs</li>
+              <li><strong>Frontend:</strong> React PWA with offline-first architecture</li>
+              <li><strong>Data Layer:</strong> PostgreSQL with encrypted backups</li>
+              <li><strong>Comms:</strong> Matrix/Signal bridges with ham radio protocols</li>
+              <li><strong>Deploy:</strong> Multi-region with edge caching</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Integration Partners</h3>
+            <ul>
+              <li><strong>Data feeds:</strong> Reuters, GDELT, government RSS</li>
+              <li><strong>Maps:</strong> OpenStreetMap with offline tiles</li>
+              <li><strong>Payments:</strong> Stripe with crypto fallback</li>
+              <li><strong>Storage:</strong> IPFS for distributed docs</li>
+              <li><strong>Alerts:</strong> Twilio/SNS with satellite SMS backup</li>
+            </ul>
+          </div>
         </div>
 
-        <h3>Product Pillars</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Pillar</th>
-              <th>Key Features</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Watcher API</td>
-              <td>Regex RSS monitor, JSON webhook, 30 stock signals</td>
-            </tr>
-            <tr>
-              <td>Ops Board</td>
-              <td>Role & asset matrix, color-coded per band</td>
-            </tr>
-            <tr>
-              <td>Inventory Module</td>
-              <td>QR scan, burn-rate, export CSV/PDF</td>
-            </tr>
-            <tr>
-              <td>Skill Scheduler</td>
-              <td>Drill calendar, AAR uploads, video embed</td>
-            </tr>
-            <tr>
-              <td>Vault</td>
-              <td>Encrypted doc store, LLC templates</td>
-            </tr>
-          </tbody>
-        </table>
+        <h3>Security & Compliance</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Data Protection</h4>
+            <ul>
+              <li>End-to-end encryption for family communications</li>
+              <li>Zero-knowledge architecture for sensitive documents</li>
+              <li>Regular third-party security audits</li>
+              <li>GDPR/CCPA compliant data handling</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Operational Security</h4>
+            <ul>
+              <li>Distributed team across multiple jurisdictions</li>
+              <li>Infrastructure spans 3+ cloud providers</li>
+              <li>Cryptocurrency treasury for platform continuity</li>
+              <li>Open-source core for community resilience</li>
+            </ul>
+          </div>
+        </div>
 
-        <h3>User Journey</h3>
-        <ol style="color:var(--muted);font-size:0.875rem;padding-left:1.5rem;margin:2rem 0;">
-          <li>Sign-up (freemium) and connect watcher.</li>
-          <li>Import quick-start checklist (Green band).</li>
-          <li>First signal fires → tasks auto-populate.</li>
-          <li>Family drills logged; burn-rate auto-calculates.</li>
-          <li>Upsell to paid tier for extras.</li>
-        </ol>
-
-        <h3>Business Model</h3>
+        <h3>Pricing Tiers</h3>
         <table>
           <thead>
             <tr>
               <th>Tier</th>
               <th>Price</th>
-              <th>Limits / Extras</th>
+              <th>Features</th>
+              <th>Ideal For</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>Scout</strong></td>
               <td>Free</td>
-              <td>$0</td>
-              <td>1 location · 3 users · 10 inventory lines</td>
+              <td>• 3 users<br>• 5 indicators<br>• Basic alerts<br>• 10 inventory items</td>
+              <td>Individual awareness</td>
             </tr>
             <tr>
-              <td>Pro</td>
-              <td>$10/mo</td>
-              <td>Unlimited users/signals · doc vault</td>
+              <td><strong>Family</strong></td>
+              <td>$15/mo</td>
+              <td>• 10 users<br>• All 22 indicators<br>• Role matrix<br>• Unlimited inventory<br>• Encrypted vault</td>
+              <td>Nuclear family coordination</td>
             </tr>
             <tr>
-              <td>Family-Enterprise</td>
+              <td><strong>Clan</strong></td>
               <td>$25/mo</td>
-              <td>Multi-site · sat-SMS fallback · insurance-score API</td>
+              <td>• 50 users<br>• Multi-site coordination<br>• Convoy planning<br>• Satellite SMS<br>• API access</td>
+              <td>Extended family networks</td>
+            </tr>
+            <tr>
+              <td><strong>Community</strong></td>
+              <td>Custom</td>
+              <td>• Unlimited users<br>• White-label options<br>• Custom indicators<br>• Priority support</td>
+              <td>Churches, veteran groups</td>
             </tr>
           </tbody>
         </table>
 
-        <h3>Key Advantages</h3>
-        <ul style="color:var(--muted);font-size:0.875rem;padding-left:1.5rem;list-style:disc;">
-          <li>Zero-install onboarding.</li>
-          <li>Family-centric UX with enterprise-grade feeds.</li>
-          <li>Plugin economics for partner revenue.</li>
-          <li>Ready for community affiliations.</li>
-        </ul>
+        <div class="card" style="margin-top: 2rem; text-align: center;">
+          <h3>Ready to Build Your Resilience Network?</h3>
+          <p>Join the beta program and help shape the future of family preparedness.</p>
+          <button class="btn" style="margin-top: 1rem;">Request Early Access</button>
+        </div>
       </section>
     </div>
   </main>
