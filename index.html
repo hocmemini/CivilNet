@@ -1,118 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Civil‑Net · Business Plan</title>
-  <!-- Tailwind CDN (JIT) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- React & ReactDOM UMD builds -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <!-- Babel for in‑browser JSX (no build step) -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civil‑Net · Readiness SaaS</title>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .fade-in { animation: fadeIn 0.5s ease-in-out; }
-    @keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform:none;} }
+    :root {
+      --bg1: #0f172a;
+      --bg2: #1e293b;
+      --text: #f1f5f9;
+      --muted: #cbd5e1;
+      --teal: #2dd4bf;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      color: var(--text);
+      background: linear-gradient(to bottom right, var(--bg1), var(--bg2), var(--bg1));
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    header .wrapper {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: inherit;
+      margin-left: 1rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    nav button.active,
+    nav button:hover {
+      color: var(--teal);
+    }
+    main {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    section {
+      display: none;
+      margin-top: 2rem;
+    }
+    section.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .grid-two {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card {
+      background: rgba(30,41,59,0.6);
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn {
+      background: var(--teal);
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover {
+      filter: brightness(1.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: none; }
+    }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-100">
-  <div id="root"></div>
+<body>
+  <header>
+    <div class="wrapper">
+      <h1 style="font-size:1.5rem;font-weight:600;">Civil‑Net</h1>
+      <nav id="nav">
+        <button data-section="overview" class="active">Overview</button>
+        <button data-section="families">Families</button>
+        <button data-section="investors">Investors</button>
+        <button data-section="why">Why Care?</button>
+        <button data-section="modules">Modules</button>
+        <button data-section="market">Market</button>
+        <button data-section="roadmap">Roadmap</button>
+        <button data-section="blueprint">Blueprint</button>
+      </nav>
+    </div>
+  </header>
 
-  <script type="text/babel">
-    const {useState} = React;
-    const {CheckCircle, TrendingUp, Shield, Layers, ArrowRight} = lucide;
+  <main id="content">
+    <section id="overview" class="active grid grid-two">
+      <div>
+        <h2 style="font-size:2rem;font-weight:700;line-height:1.2;">
+          Empower families & teams to <span style="color:var(--teal);">anticipate</span>,
+          <span style="color:var(--teal);">coordinate</span> & <span style="color:var(--teal);">thrive</span> under disruption.
+        </h2>
+        <p style="color:var(--muted); font-size:1rem;">
+          Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, turning complex crises into actionable checklists for households, SMEs, and affinity groups.
+        </p>
+        <button id="exploreBtn" class="btn">See Families →</button>
+      </div>
+      <div class="card" style="text-align:center;">
+        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+          <rect width="200" height="120" rx="12" fill="#1e293b"/>
+          <path d="M20 60h160" stroke="#334155" stroke-width="4" stroke-dasharray="4 8"/>
+          <circle cx="100" cy="60" r="12" fill="#2dd4bf"/>
+        </svg>
+      </div>
+    </section>
 
-    function ModuleCard({title, Icon, children}){
-      return (
-        <div className="fade-in bg-slate-800/60 rounded-2xl shadow-xl p-4 w-full md:w-64 backdrop-blur-sm">
-          <div className="flex items-center gap-2 mb-2">
-            <Icon className="w-5 h-5 text-teal-400" />
-            <h3 className="font-semibold text-lg">{title}</h3>
-          </div>
-          <p className="text-sm text-slate-300 leading-relaxed">{children}</p>
+    <section id="blueprint">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Clan Mobilization Blueprint</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">A scalable plan for family-based emergency response, organized by functional cells with clear triggers.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Functional Cells</h3>
+          <ul style="padding-left:1rem;font-size:0.875rem;color:var(--muted);list-style:disc;">
+            <li>Medical – triage SOPs, 30-day meds, secure records</li>
+            <li>Logistics – inventory stocks, assign depots, burn-rate forecasts</li>
+            <li>Mobility – rally routes, fuel caches, convoy SOP</li>
+            <li>Comms – Signal ➜ Matrix ➜ ham radio stack, key rotation</li>
+            <li>Finance – coop LLC, credit union accounts, aid agreements</li>
+            <li>Security – range days, standardized calibers, rules of engagement</li>
+          </ul>
         </div>
-      )
+        <div class="card">
+          <h3>Standing Triggers</h3>
+          <ol style="padding-left:1rem;font-size:0.875rem;color:var(--muted);">
+            <li><strong>Green</strong> – maintain chat and inventories</li>
+            <li><strong>Yellow</strong> – 72‑h check-in, pre-stage essentials</li>
+            <li><strong>Orange</strong> – wire funds, load pallets, site security</li>
+            <li><strong>Red</strong> – phased relocation, 24/7 watch, nightly ham nets</li>
+          </ol>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Mountain West sites offer low target profile, strong logistics, and friendly laws. Initial steps: set up a secure cloud space, form the coop LLC, and schedule the first field day.</p>
+    </section>
+
+    <section id="families">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Families</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net streamlines household readiness through clear checklists and private coordination tools.</p>
+      <ol style="color:var(--muted);padding-left:1rem;font-size:0.875rem;list-style:decimal;">
+        <li>Signal threshold reached via Watcher API</li>
+        <li>Validate alerts with your family group</li>
+        <li>Activate shared task lists & logistics</li>
+        <li>Track progress until the situation resolves</li>
+      </ol>
+      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Benefits include peace of mind and bulk‑buy savings. Keep costs low by pooling resources and only buying what’s needed.</p>
+    </section>
+
+    <section id="investors">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Investors</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Civil‑Net earns recurring revenue from subscriptions and white‑label licensing.</p>
+      <ul style="color:var(--muted);font-size:0.875rem;padding-left:1rem;list-style:disc;">
+        <li>Lean team with <em>cash‑flow positive</em> target in year two</li>
+        <li>Competitors focus on enterprise; we own the family niche</li>
+        <li>GTM via community groups and affinity channels</li>
+        <li>Exit potential: acquisition by SaaS security or comms players</li>
+      </ul>
+    </section>
+
+    <section id="why">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Why Care?</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">Disruption is global—from natural disasters to supply shocks. Civil‑Net helps everyday people stay informed and act quickly, building resilience for communities and nations alike.</p>
+    </section>
+
+    <section id="modules">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Core Modules</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Watcher API</h3>
+          <p style="color:var(--muted);font-size:0.875rem;">Real‑time regex monitoring of news feeds with webhook dispatch.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>Native‑language expansion via GDELT & NewsAPI</li>
+            <li>Custom regex & geofences</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Ops Board</h3>
+          <p style="color:var(--muted);font-size:0.875rem;">Role & asset matrix with color alerts synced to watcher triggers.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>Offline‑first PWA</li>
+            <li>CSV/ICS export for partners</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Inventory</h3>
+          <p style="color:var(--muted);font-size:0.875rem;">QR‑scan supplies, track burn‑rate by family size.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>Auto reorder thresholds</li>
+            <li>Printable PDF/CSV lists</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Skill Scheduler</h3>
+          <p style="color:var(--muted);font-size:0.875rem;">Calendar & push alerts for drills and after‑action reviews.</p>
+          <ul style="padding-left:1rem;font-size:0.75rem;color:var(--muted);list-style:disc;">
+            <li>YouTube and LMS integration</li>
+            <li>Community badge system</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="market">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Market Snapshot</h2>
+      <p style="color:var(--muted); font-size:1rem; max-width:48rem;">
+        ~8 million U.S. households identify as serious preparedness‑minded. A $15/mo freemium conversion at 0.5 % yields $7 M ARR potential. Competitors focus on enterprise (Everbridge) or static checklists. Civil‑Net targets the white space in family‑grade but data‑driven readiness.
+      </p>
+    </section>
+
+    <section id="roadmap">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Roadmap</h2>
+      <ul style="color:var(--muted); font-size:1rem; padding-left:1rem; list-style: disc;">
+        <li><strong>Q3 2025</strong>  Watcher API GA · Stripe billing · MVP dashboard</li>
+        <li><strong>Q4 2025</strong>  Mobile PWA · Inventory QR scanner · Affiliate marketplace</li>
+        <li><strong>Q1 2026</strong>  Sat‑SMS fallback · Native‑language feed expansion</li>
+        <li><strong>Q2 2026</strong>  Insurance‑score API · White‑label for veteran & LDS networks</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Civil‑Net Cooperative · No build step
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('main > section');
+    const navButtons = document.querySelectorAll('nav button');
+
+    function showSection(id) {
+      sections.forEach(sec => {
+        sec.classList.toggle('active', sec.id === id);
+      });
+      navButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.section === id);
+      });
     }
 
-    function App(){
-      const [section,setSection]=useState('overview');
-      const nav=[['overview','Overview'],['modules','Core Modules'],['market','Market'],['roadmap','Roadmap'],['contact','Contact']];
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => showSection(btn.dataset.section));
+    });
 
-      return (
-        <div>
-          {/* Header */}
-          <header className="sticky top-0 z-20 backdrop-blur-md bg-slate-900/70 shadow-inner">
-            <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-              <h1 className="text-2xl font-bold tracking-wide">Civil‑Net</h1>
-              <nav className="flex gap-4 text-sm">
-                {nav.map(([id,label])=> (
-                  <button key={id} onClick={()=>setSection(id)} className={`hover:text-teal-400 transition ${section===id?'text-teal-400':''}`}>{label}</button>
-                ))}
-              </nav>
-            </div>
-          </header>
+    document.getElementById('exploreBtn').addEventListener('click', () => showSection('families'));
 
-          <main className="max-w-6xl mx-auto p-6 md:p-12 space-y-16">
-            {section==='overview' && (
-              <section className="grid md:grid-cols-2 gap-8 items-center fade-in">
-                <div className="space-y-6">
-                  <h2 className="text-4xl font-extrabold leading-tight">Empower families & teams to <span className="text-teal-400">anticipate</span>, <span className="text-teal-400">coordinate</span> & <span className="text-teal-400">thrive</span> under disruption.</h2>
-                  <p className="text-lg text-slate-300">Civil‑Net is the first readiness SaaS that fuses live geopolitical signal feeds with role‑based logistics, turning complex crises into actionable checklists for households, SMEs, and affinity groups.</p>
-                  <button onClick={()=>setSection('modules')} className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white font-medium px-5 py-2 rounded-xl shadow">Explore Modules <ArrowRight className="w-4 h-4 ml-2"/></button>
-                </div>
-                <img className="rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=900&q=60" alt="dashboard preview" />
-              </section>
-            )}
-
-            {section==='modules' && (
-              <section className="space-y-10 fade-in">
-                <h2 className="text-3xl font-bold">Core Modules</h2>
-                <div className="flex flex-wrap gap-6">
-                  <ModuleCard title="Watcher API" Icon={Shield}>Real‑time regex monitoring of global English feeds with webhook dispatch. Extensible to GDELT & NewsAPI for native‑language reach.</ModuleCard>
-                  <ModuleCard title="Ops Board" Icon={Layers}>Trello‑style role & asset matrix with color‑coded alerts synced to watcher triggers.</ModuleCard>
-                  <ModuleCard title="Inventory" Icon={CheckCircle}>QR‑scan supplies, auto‑calculate burn‑rate by family size, export to CSV/PDF.</ModuleCard>
-                  <ModuleCard title="Skill Scheduler" Icon={TrendingUp}>Calendar & push alerts for drills, AAR uploads, YouTube field‑day integration.</ModuleCard>
-                </div>
-              </section>
-            )}
-
-            {section==='market' && (
-              <section className="space-y-6 fade-in">
-                <h2 className="text-3xl font-bold">Market Snapshot</h2>
-                <p className="text-lg text-slate-300 max-w-3xl">~8 million U.S. households identify as serious preparedness‑minded. A $15/mo freemium conversion at 0.5 % yields $7 M ARR potential. Competitors focus on enterprise (Everbridge) or static checklists. Civil‑Net targets the white space in family‑grade but data‑driven readiness.</p>
-              </section>
-            )}
-
-            {section==='roadmap' && (
-              <section className="space-y-6 fade-in">
-                <h2 className="text-3xl font-bold">Roadmap</h2>
-                <ul className="list-disc pl-6 space-y-2 text-slate-300">
-                  <li><strong>Q3 2025</strong>  Watcher API GA · Stripe billing · MVP dashboard</li>
-                  <li><strong>Q4 2025</strong>  Mobile PWA · Inventory QR scanner · Affiliate marketplace</li>
-                  <li><strong>Q1 2026</strong>  Sat‑SMS fallback · Native‑language feed expansion</li>
-                  <li><strong>Q2 2026</strong>  Insurance‑score API · White‑label for veteran & LDS networks</li>
-                </ul>
-              </section>
-            )}
-
-            {section==='contact' && (
-              <section className="space-y-6 fade-in">
-                <h2 className="text-3xl font-bold">Get in Touch</h2>
-                <p className="text-slate-300 max-w-2xl">Interested in early access, investment, or pilot programs for your community? Reach out via <a href="mailto:founder@civil-net.io" className="underline text-teal-400">founder@civil-net.io</a> and let’s build resilient futures together.</p>
-              </section>
-            )}
-          </main>
-
-          <footer className="text-center py-6 text-xs text-slate-500">© {new Date().getFullYear()} Civil‑Net Cooperative · Built with React + Tailwind • No build step</footer>
-        </div>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
