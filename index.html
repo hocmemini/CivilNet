@@ -114,10 +114,9 @@
         <button data-section="investors">Investors</button>
         <button data-section="why">Why Care?</button>
         <button data-section="modules">Modules</button>
-
         <button data-section="market">Market</button>
         <button data-section="roadmap">Roadmap</button>
-        <button data-section="contact">Contact</button>
+        <button data-section="blueprint">Blueprint</button>
       </nav>
     </div>
   </header>
@@ -141,6 +140,34 @@
           <circle cx="100" cy="60" r="12" fill="#2dd4bf"/>
         </svg>
       </div>
+    </section>
+
+    <section id="blueprint">
+      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Clan Mobilization Blueprint</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:48rem;">A scalable plan for family-based emergency response, organized by functional cells with clear triggers.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Functional Cells</h3>
+          <ul style="padding-left:1rem;font-size:0.875rem;color:var(--muted);list-style:disc;">
+            <li>Medical – triage SOPs, 30-day meds, secure records</li>
+            <li>Logistics – inventory stocks, assign depots, burn-rate forecasts</li>
+            <li>Mobility – rally routes, fuel caches, convoy SOP</li>
+            <li>Comms – Signal ➜ Matrix ➜ ham radio stack, key rotation</li>
+            <li>Finance – coop LLC, credit union accounts, aid agreements</li>
+            <li>Security – range days, standardized calibers, rules of engagement</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Standing Triggers</h3>
+          <ol style="padding-left:1rem;font-size:0.875rem;color:var(--muted);">
+            <li><strong>Green</strong> – maintain chat and inventories</li>
+            <li><strong>Yellow</strong> – 72‑h check-in, pre-stage essentials</li>
+            <li><strong>Orange</strong> – wire funds, load pallets, site security</li>
+            <li><strong>Red</strong> – phased relocation, 24/7 watch, nightly ham nets</li>
+          </ol>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:0.875rem;max-width:48rem;">Mountain West sites offer low target profile, strong logistics, and friendly laws. Initial steps: set up a secure cloud space, form the coop LLC, and schedule the first field day.</p>
     </section>
 
     <section id="families">
@@ -226,12 +253,6 @@
       </ul>
     </section>
 
-    <section id="contact">
-      <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Get in Touch</h2>
-      <p style="color:var(--muted); max-width:40rem;">
-        Interested in early access, investment, or pilot programs for your community? Reach out via <a href="mailto:founder@civil-net.io" style="color:var(--teal); text-decoration: underline;">founder@civil-net.io</a> and let’s build resilient futures together.
-      </p>
-    </section>
   </main>
 
   <footer>
@@ -241,7 +262,7 @@
   <script>
     const sections = document.querySelectorAll('main > section');
     const navButtons = document.querySelectorAll('nav button');
-
+    
     function showSection(id) {
       sections.forEach(sec => {
         sec.classList.toggle('active', sec.id === id);
@@ -256,6 +277,7 @@
     });
 
     document.getElementById('exploreBtn').addEventListener('click', () => showSection('families'));
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
